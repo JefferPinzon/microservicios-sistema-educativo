@@ -6,14 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection = "subject")
+@Document(collection = "subjects") // Cambié "subject" a "subjects" para mantener la consistencia
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubjectEntity {
     @Id
     private String id;
-    private String subjectName;
-    private String subjectCode;
-    private String teacherId;
+    private String subjectName; // Nombre de la asignatura
+    private String subjectCode; // Código de la asignatura
+    private String teacherId; // ID del profesor que imparte la asignatura
 }

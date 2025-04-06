@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.4</version>
+		<version>3.2.0</version> <!-- Versión de Spring Boot -->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microservicios</groupId>
@@ -15,7 +15,7 @@
 	<description>Microservicio para gestionar matrículas</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2023.0.0</spring-cloud.version> <!-- Asegúrate de usar la versión correcta -->
+		<spring-cloud.version>2022.0.0</spring-cloud.version> <!-- Versión de Spring Cloud compatible -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,6 +39,26 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-task</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-web</artifactId>
 		</dependency>
 	</dependencies>
 

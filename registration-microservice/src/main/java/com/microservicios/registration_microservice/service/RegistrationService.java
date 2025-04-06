@@ -7,10 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
 public class RegistrationService {
+
     @Autowired
     private RegistrationRepository registrationRepository;
 
@@ -25,6 +27,7 @@ public class RegistrationService {
         ResponseEntity<?> userResponse = userServiceClient.getUserById(registration.getStudentId());
         ResponseEntity<?> subjectResponse = subjectServiceClient.getSubjectById(registration.getSubjectId());
 
+        // Verificar si el estudiante y la asignatura existen
         if (userResponse.getStatusCode() == HttpStatus.OK && subjectResponse.getStatusCode() == HttpStatus.OK) {
             return registrationRepository.save(registration);
         } else {

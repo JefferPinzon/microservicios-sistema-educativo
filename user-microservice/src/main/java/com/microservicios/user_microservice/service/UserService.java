@@ -2,17 +2,17 @@ package com.microservicios.user_microservice.service;
 
 import com.microservicios.user_microservice.entity.UserEntity;
 import com.microservicios.user_microservice.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
@@ -22,28 +22,28 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public UserEntity createUser (UserEntity user) {
-        return userRepository.save(user);
+    public UserEntity createUser (UserEntity userEntity) {
+        return userRepository.save(userEntity);
     }
 
-    public Optional<UserEntity> updateUser (UserEntity user) {
-        if (userRepository.existsById(user.getId())) {
-            return Optional.of(userRepository.save(user));
-        }
-        return Optional.empty();
+    public Optional<UserEntity> updateUser (UserEntity userEntity) {
+        return userRepository.findById(userEntity.getId())
+                .map(existingUser  -> userRepository.save(userEntity));
     }
 
     public void deleteUser (String id) {
-        if (userRepository.existsById(id)) {
-            userRepository.deleteById(id);
-        }
+        userRepository.deleteById(id);
     }
 
     public List<UserEntity> getUsersByRole(String role) {
-        return userRepository.findByRole(role);
+        return userRepository.findAll().stream()
+                .filter(user -> user.getRole().equals(role))
+                .toList();
     }
 
     public List<UserEntity> searchUsersByName(String name, String lastName) {
-        return userRepository.findByNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name, lastName);
+        return userRepository.findAll().stream()
+                .filter(user -> user.getName().equalsIgnoreCase(name) && user.getLastName().equalsIgnoreCase(lastName))
+                .toList();
     }
 }
