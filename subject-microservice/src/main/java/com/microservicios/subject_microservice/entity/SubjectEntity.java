@@ -1,16 +1,15 @@
 package com.microservicios.subject_microservice.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Document(value = "subject")
-@Getter
-@Setter
+@Document(collection = "subject")
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
-
 public class SubjectEntity {
     @Id
     private String id;
