@@ -76,14 +76,14 @@ La entidad UserEntity contiene los siguientes campos:
 
 ## API Endpoints
 ```bash
-Método HTTP     Endpoint    Descripción 
-GET     /api/users      Obtiene todos los usuarios
-GET     /api/users/{id}     Obtiene un usuario por su ID
-POST    /api/users      Crea un nuevo usuario
-PUT     /api/users/{id}     Actualiza un usuario existente
-DELETE      /api/users/{id}     Elimina un usuario
-GET     /api/users/role/{role}      Obtiene usuarios por rol
-GET     /api/users/search?name={name}&lastName={lastName}       Busca usuarios por nombre y apellido
+Método HTTP     Endpoint                                               Descripción
+GET            /api/users                                              Obtiene todos los usuarios
+GET            /api/users/{id}                                         Obtiene un usuario por su ID
+POST           /api/users                                              Crea un nuevo usuario
+PUT            /api/users/{id}                                         Actualiza un usuario existente
+DELETE         /api/users/{id}                                         Elimina un usuario
+GET            /api/users/role/{role}                                  Obtiene usuarios por rol
+GET            /api/users/search?name={name}&lastName={lastName}       Busca usuarios por nombre y apellido
 ```
 ## Ejemplos de uso
 ### Obtener todos los usuarios
